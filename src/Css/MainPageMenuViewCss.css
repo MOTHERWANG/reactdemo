@@ -1,0 +1,34 @@
+.MainPageMenuView{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    
+    /* height: 50px; */
+}
+.DocNameTag{
+    
+    line-height: 50px;
+    font-size: x-large;
+}
+.PageNumberIndicator{
+    line-height: 50px;
+    width: 5cm;
+    text-align: center;
+    font-size: x-large;
+}
+.MainPageMenuButtonGroup{
+    line-height: 50px;
+}
+.pageNumberInputBox{
+    width: 30px;
+    background-color: rgb(23, 130, 196);
+    font-size: x-large;
+    margin: 0px;
+    padding: 0px;
+    text-align: right;
+    /* user-select: select on; */
+}
+*{
+    user-select: none;
+}

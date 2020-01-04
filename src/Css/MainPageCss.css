@@ -1,23 +1,31 @@
 .MainPage{
     display:flex;
     flex-direction: column;
-    height: calc(100vh);
+    min-height: 100%;
+    
 }
 .topHeader{
     
-    background-color: rgb(110, 110, 110);
+    background-color: rgb(23, 130, 196);
     height: 50px;
     width: 100%;
+    position: fixed;
 }
 .middleBody{
    
-    background-color: rgb(170, 200, 224);
-    height: calc(100% - 90px);
-    width: 100%;
+    background-color: rgb(88, 96, 103);
+    
+    height:3000px;
+    width: 200%;
+    min-height: 100%;
+
 }
 .bottomFooter{
     
     background-color: rgb(88, 168, 168);
+    opacity: 0.5;
     height: 40px;
     width: 100%;
+    bottom: 0px;
+    position: fixed;
 }

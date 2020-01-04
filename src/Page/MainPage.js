@@ -1,12 +1,12 @@
 import React, { useState } from "react"
 import "../Css/MainPageCss.css"
-import MainPageMenuNormal from "../Component/MainPageMenuNormal"
+import MainPageMenuView from "../Component/MainPageMenuView"
 const MainPage = () => {
     return (
         <div className="MainPage">
 
             <div className="topHeader">
-                <MainPageMenuNormal />
+                <MainPageMenuView />
 
             </div>
             <div className="middleBody"></div>
