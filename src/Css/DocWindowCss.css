@@ -1,0 +1,27 @@
+
+.DocWindow{
+    background-color: rgb(88, 96, 103);
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.DocPage{
+    position: relative;
+    vertical-align: middle;
+    align-self: center;
+
+}
+.docPageImage{
+    position: absolute;
+    z-index: 1;
+}
+.docPageCanvas{
+    
+    position: absolute;
+    z-index: 2;
+}
+.topHolder{
+    
+    width: 100%;
+    height: 100px;
+}

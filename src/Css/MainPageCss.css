@@ -10,15 +10,9 @@
     height: 50px;
     width: 100%;
     position: fixed;
+    z-index: 99999;
 }
 .middleBody{
-   
-    background-color: rgb(88, 96, 103);
-    
-    height:3000px;
-    width: 200%;
-    min-height: 100%;
-
 }
 .bottomFooter{
     
@@ -28,4 +22,5 @@
     width: 100%;
     bottom: 0px;
     position: fixed;
+    z-index: 99999;
 }
