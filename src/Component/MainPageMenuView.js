@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react"
 import "../Css/MainPageMenuViewCss.css"
 import { Icon } from "antd";
-import { MyContext } from "../Page/MainPage"
+import { MainPageContext } from "../Page/MainPage"
 
 const DocNameTag = (props) => {
     // const [docName,]
@@ -11,10 +11,14 @@ const DocNameTag = (props) => {
 }
 const PageNumberIndicator = (props) => {
     // 初次渲染页码显示
-    const [currentPageNumber, setCurrentPageNumber] = useState(1);
+
+    const pgnum = useContext(MainPageContext).pgNum;
+
+
+    const [currentPageNumber, setCurrentPageNumber] = useState(pgnum);
     const [totalPageNumber, setTotalPageNumber] = useState(20);
-    
-    const contextType = MyContext;
+
+
     let tempPageNumber = currentPageNumber;
     const turningSpanToInput = () => {
         let pageNumberIndicator = document.getElementById('pageNumberIndicator');
@@ -62,8 +66,9 @@ const PageNumberIndicator = (props) => {
         pageNumberIndicator.insertBefore(newCurrentPageNumberSpan, pageNumberIndicator.childNodes[0]);
     }
     useEffect(() => {
-        console.log(contextType)
-    });
+        setCurrentPageNumber(pgnum);
+        console.log("setting Current PageNum" + pgnum);
+    }, [pgnum]);
     return (
         <div className="PageNumberIndicator" id="pageNumberIndicator" >
             <span onClick={turningSpanToInput} >{currentPageNumber}</span><span onClick={turningInputToSpan}> / {totalPageNumber}</span>
@@ -89,7 +94,7 @@ const MainPageMenuView = (props) => {
     return (
         <div className="MainPageMenuView">
             <DocNameTag />
-            <PageNumberIndicator/>
+            <PageNumberIndicator />
             <MainPageMenuViewButtonGroup switchMenu={props.switchMenu} />
         </div>
     );

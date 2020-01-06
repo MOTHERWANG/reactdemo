@@ -9,15 +9,18 @@
     position: relative;
     vertical-align: middle;
     align-self: center;
+    /* z-index: 2; */
+
 
 }
 .docPageImage{
     position: absolute;
     z-index: 1;
 }
-.docPageCanvas{
+.docPageEditBase{
     
-    position: absolute;
+    /* position: absolute; */
+    position: relative;
     z-index: 2;
 }
 .topHolder{
