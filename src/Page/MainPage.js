@@ -25,6 +25,7 @@ const MainPage = () => {
     // 等待点击文档放下便笺
     const [isAddingFusen, setIsAddingFusen] = useState(false);
 
+
     useEffect(() => {
 
         if (isAddingFusen === true) {
@@ -37,7 +38,12 @@ const MainPage = () => {
     }, [isAddingFusen]);
 
     return (
-        <MainPageContext.Provider value={{ pgNum: pageNumber, setIsAddingFusen: setIsAddingFusen, isAddingFusen: isAddingFusen }}>
+        <MainPageContext.Provider value={{
+            pgNum: pageNumber,
+            setIsAddingFusen: setIsAddingFusen,
+            isAddingFusen: isAddingFusen,
+
+        }}>
             <div className="MainPage">
                 <div className="topHeader">
 

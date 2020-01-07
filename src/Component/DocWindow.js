@@ -35,20 +35,19 @@ const DocPage = (props) => {
     }
     // 此时零点坐标(相对于DocPage)：x:(window.screen.width-imgWidth)/2,y:50
 
-    const pageOnMouseDownHandler = (e) => {
-        console.log(e.target.id);
-    }
 
 
 
+    // // 为每一页添加监听鼠标移动/按下事件
+    // useEffect(() => {
+    //     document.getElementById("docPageEditBase" + pageNumber).addEventListener("mousedown", pageOnMouseDownHandler);
+    //     document.getElementById("docPageEditBase" + pageNumber).addEventListener("mousemove", pageOnMouseMoveHandler);
+    //     return (() => {
+    //         document.getElementById("docPageEditBase" + pageNumber).removeEventListener("mousedown", pageOnMouseDownHandler);
+    //         document.getElementById("docPageEditBase" + pageNumber).removeEventListener("mousedown", pageOnMouseMoveHandler);
+    //     })
+    // });
 
-    // 为每一页添加监听鼠标按下事件
-    useEffect(() => {
-        document.getElementById("docPageEditBase" + pageNumber).addEventListener("mousedown", pageOnMouseDownHandler);
-        return (() => {
-            document.getElementById("docPageEditBase" + pageNumber).removeEventListener("mousedown", pageOnMouseDownHandler);
-        })
-    });
     return (
         <div className="DocPage" style={pageSizeCss}>
             <img className="docPageImage" src={imgSrc} style={imagePositionCss} />
@@ -56,7 +55,12 @@ const DocPage = (props) => {
         </div>
     );
 }
+
+
+
 const DocWindow = (props) => {
+
+
 
 
 
@@ -66,6 +70,8 @@ const DocWindow = (props) => {
     // 添加便笺的状态（从MainPage订阅的）isAddingFusen:true/false
     const isAddingFusen = useContext(MainPageContext).isAddingFusen;
     const setIsAddingFusen = useContext(MainPageContext).setIsAddingFusen;
+
+
     useEffect(() => {
         console.log('DOCWIN isADDing:' + isAddingFusen);
         if (isAddingFusen === true) {
@@ -86,14 +92,13 @@ const DocWindow = (props) => {
         newFusenDiv.innerHTML = "ここに文字列を入力してください。";
         console.log('id' + id);
         newFusenDiv.style.position = "absolute";
-        newFusenDiv.style.zIndex = "6";
+        newFusenDiv.style.zIndex = "6"; // T.B.D
         newFusenDiv.style.left = (window.screen.width - 793) / 2 + "px";
-
         newFusenDiv.style.top = "50px"
 
 
         document.onmousemove = function (e) {
-            console.log(e)
+            // console.log(e)
             // console.log(e.target)
             document.getElementById("topHoldmer").appendChild(newFusenDiv);
             newFusenDiv.style.left = e.pageX + 0 + "px";
@@ -103,7 +108,7 @@ const DocWindow = (props) => {
 
         // 监听鼠标click  检查坐标，符合就解除便笺div移动事件
         document.onmousedown = function (e) {
-            console.log("down e:" + e.path[0].id);
+            // console.log("down e:" + e.path[0].id);
 
             // 获取e 的divId
             // let page = 
@@ -111,7 +116,7 @@ const DocWindow = (props) => {
             // 取消鼠标移动事件
             document.onmousemove = null;
             // 透明度更改
-            // document.getElementById("f" + id).style.opacity = "1";
+            document.getElementById("f" + id).style.opacity = "1";
             // 将新便笺插入对应页的docPageEditBase div
             document.getElementById("topHoldmer").appendChild(newFusenDiv);
             setIsAddingFusen(false);
