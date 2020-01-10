@@ -9,28 +9,23 @@ const Fusen = (props) => {
     const setIsAddingFusen = useContext(MainPageContext).setIsAddingFusen;
 
     const handleAddFusenStateSet = () => {
-        /*
-                let offsetX = (window.screen.width - 793) / 2;
-                let offsetY = 50;
-                let newFusen = document.createElement("div");
-                newFusen.style.width = "200px";
-                newFusen.style.height = "200px";
-                newFusen.style.position = "absolute";
-                newFusen.style.left = "323.5px";
-                newFusen.style.top = "50px";
-                newFusen.style.resize = "both";
-                newFusen.style.backgroundColor = "pink";
-                newFusen.style.zIndex = "5";
-                document.getElementById("canvas2").appendChild(newFusen);*/
-        // demo end
-        // testi++;
-        // if (testi % 2 === 0) {
-        //     setIsAddingFusen(true);
-        //     console.log("setToTrue," + testi)
-        // } else {
-        //     setIsAddingFusen(false);
-        //     console.log("setToFalse," + testi)
-        // }
+        // /*执行添加便笺*/
+        // // create一个便笺div,绑定事件跟随光标运动   style{width,height,...}
+        // let newFusenDiv = document.createElement("div");
+        // newFusenDiv.style.width = "350px";
+        // newFusenDiv.style.height = "100px";
+        // newFusenDiv.style.opacity = "0.75";
+        // newFusenDiv.style.backgroundColor = "pink";
+        // newFusenDiv.id = "f";// T.B.D
+        // newFusenDiv.innerHTML = "ここに文字列を入力してください。";
+
+        // newFusenDiv.style.position = "absolute";
+        // newFusenDiv.style.zIndex = "6"; // T.B.D
+        // newFusenDiv.style.left = (window.screen.width - 793) / 2 + "px";
+        // newFusenDiv.style.top = "50px";
+        // // newFusenDiv.style.display = false;
+        // document.getElementById("topHoldmer").appendChild(newFusenDiv);
+
         setIsAddingFusen(true);
     }
     return (

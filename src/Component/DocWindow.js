@@ -35,22 +35,53 @@ const DocPage = (props) => {
     }
     // 此时零点坐标(相对于DocPage)：x:(window.screen.width-imgWidth)/2,y:50
 
+    // const isAddingFusen = useContext(MainPageContext).isAddingFusen;
+    // const setIsAddingFusen = useContext(MainPageContext).setIsAddingFusen;
+    // const pageOnMouseDownHandler = (e) => {
+    //     // document.onmousemove = null;
+    //     if (isAddingFusen === true) {
+    //         console.log(e.pageX + 'px');
 
 
+    //         let fusenInTopHoldmer = document.getElementById('f');
+    //         fusenInTopHoldmer.style.left = e.offsetX;
+    //         fusenInTopHoldmer.style.top = e.offsetY;
+    //         alert('fusenInTopHoldmer')
+    //         document.getElementById("docPageEditBase" + pageNumber).appendChild(fusenInTopHoldmer);
 
+    //         let topHoldmer = document.getElementById('topHoldmer');
+    //         topHoldmer.onmousemove = null;
+    //         topHoldmer.removeChild(topHoldmer.childNodes[0]);
+    //         setIsAddingFusen(false);
+    //         document.onmousemove = null;
+    //     }
+
+    // }
+
+    // const pageOnMouseMoveHandler = (e) => {
+    //     if (isAddingFusen === true) {
+    //         console.log('dw' + pageNumber)
+    //         console.log(e);
+    //         let fusenInTopHoldmer = document.getElementById('f');
+    //         fusenInTopHoldmer.style.left = e.pageX + 'px';
+    //         fusenInTopHoldmer.style.top = e.pageY + 'px';
+    //     }
+    // }
     // // 为每一页添加监听鼠标移动/按下事件
     // useEffect(() => {
     //     document.getElementById("docPageEditBase" + pageNumber).addEventListener("mousedown", pageOnMouseDownHandler);
     //     document.getElementById("docPageEditBase" + pageNumber).addEventListener("mousemove", pageOnMouseMoveHandler);
+    //     // document.addEventListener("mousemove", pageOnMouseMoveHandler);
     //     return (() => {
     //         document.getElementById("docPageEditBase" + pageNumber).removeEventListener("mousedown", pageOnMouseDownHandler);
-    //         document.getElementById("docPageEditBase" + pageNumber).removeEventListener("mousedown", pageOnMouseMoveHandler);
+    //         document.getElementById("docPageEditBase" + pageNumber).removeEventListener("mousemove", pageOnMouseMoveHandler);
+    //         // document.removeEventListener("mousemove", pageOnMouseMoveHandler);
     //     })
     // });
 
     return (
-        <div className="DocPage" style={pageSizeCss}>
-            <img className="docPageImage" src={imgSrc} style={imagePositionCss} />
+        <div id={"DocPage" + pageNumber} className="DocPage" style={pageSizeCss}>
+            <img id={"docPageImage" + pageNumber} className="docPageImage" src={imgSrc} style={imagePositionCss} />
             <div id={"docPageEditBase" + pageNumber} className="docPageEditBase" style={docPageEditBasePositionCss}> </div>
         </div>
     );
@@ -118,7 +149,7 @@ const DocWindow = (props) => {
             // 透明度更改
             document.getElementById("f" + id).style.opacity = "1";
             // 将新便笺插入对应页的docPageEditBase div
-            document.getElementById("topHoldmer").appendChild(newFusenDiv);
+            document.getElementById("DocPage1").appendChild(newFusenDiv);
             setIsAddingFusen(false);
         }
 
